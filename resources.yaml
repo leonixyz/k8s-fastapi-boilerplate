@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: fastapi-helloworld-app
+  labels:
+    app: fastapi-helloworld
+spec:
+  containers:
+    - name: fastapi-helloworld-app
+      image: localhost:32000/fastapi-helloworld
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: fastapi-helloworld-service
+spec:
+  selector:
+    app: fastapi-helloworld
+  ports:
+    - port: 80
